@@ -28,7 +28,7 @@ public class Plugin : BaseUnityPlugin {
         configLedPort = Config.Bind("General", "LED COM Port", 9, "COM Port on which the LED board is connected to.");
         configSegaLibLog = Config.Bind("Debugging", "SegaLib Logging", false, "Enables Sega835Lib debug logs");
 
-        if (configSegaLibLog.Value) {
+        if (!configSegaLibLog.Value) {
             Haruka.Arcade.SEGA835Lib.Debugging.Log.Mute = true;
         }
 
